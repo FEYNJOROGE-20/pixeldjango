@@ -1,0 +1,27 @@
+<header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+        <a class="brand{% if active_page == 'home' %} active{% endif %}" href="{% url 'home' %}" aria-label="NOVA home">NOVA<span>.</span></a>
+        <div class="nav-links">
+            <a{% if active_page == 'home' %} class="active"{% endif %} href="{% url 'home' %}">Shop</a>
+            <a href="{% url 'home' %}#products">New arrivals</a>
+            <a href="{% url 'home' %}#collections">Collections</a>
+            <a{% if active_page == 'about' %} class="active"{% endif %} href="{% url 'about' %}">Our story</a>
+            <a{% if active_page == 'contact' %} class="active"{% endif %} href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'home' %}#location">Location</a>
+        </div>
+        {% if active_page == 'home' %}
+        <div class="nav-actions">
+            <button class="icon-button search-toggle" type="button" aria-label="Search"><span>⌕</span></button>
+            <button class="cart-button" type="button" aria-label="Open shopping bag"><span class="cart-icon">Bag</span><b class="cart-count">0</b></button>
+            <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+        {% else %}
+        <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        {% endif %}
+    </nav>
+    {% if active_page == 'home' %}
+    <div class="search-bar container" aria-hidden="true">
+        <input type="search" id="search-input" placeholder="Search products...">
+    </div>
+    {% endif %}
+</header>

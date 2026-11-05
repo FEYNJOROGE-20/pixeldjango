@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | NOVA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="announcement">Free delivery on orders over $75 <a href="{% url 'home' %}#products">Shop now</a></div>
+    {% include "_navigation.html" with active_page="about" %}
+    <main class="inner-page"><section class="story-hero"><p class="eyebrow">Our story</p><h1>Less, but better.</h1><p>We create thoughtful everyday essentials that balance function, beauty, and responsible design.</p></section><section class="story-content container"><img src="{% static 'images/s-l1600.webp' %}" alt="NOVA design studio"><div><p class="eyebrow">Why NOVA</p><h2>Purpose in every detail.</h2><p>Founded on a simple belief—that the objects we use every day should be worth keeping—we source durable materials and partner with makers who care about quality.</p><a class="button button-dark" href="{% url 'home' %}">Explore our products <span>→</span></a></div></section></main>
+    <footer class="footer inner-footer"><div class="container footer-bottom"><p>© 2026 NOVA. All rights reserved.</p><a href="{% url 'home' %}">Back to shop</a></div></footer>
+    <script>
+        document.querySelector('.menu-button')?.addEventListener('click', event => {
+            const links = document.querySelector('.nav-links');
+            links.classList.toggle('open');
+            event.currentTarget.setAttribute('aria-expanded', String(links.classList.contains('open')));
+        });
+    </script>
+</body>
+</html>
